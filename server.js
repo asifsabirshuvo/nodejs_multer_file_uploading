@@ -87,7 +87,7 @@ app.get('/', (req, res) => {
 
 //############### HANDLING MULTIPLE FILE UPLOAD #################
 
-    app.post('/upload/multi', upload.array('multiFile',4), (req, res) => {
+    app.post('/upload/multi', upload.array('multiFile'), (req, res) => {
 
 
         if (req.files) {
@@ -105,6 +105,7 @@ app.get('/', (req, res) => {
                 date: new Date(),
                 filename: path.join('uploads/', req.files[i].filename )
             }
+		console.log(entry.filename)
             newEntry.push(entry);
         }
 
